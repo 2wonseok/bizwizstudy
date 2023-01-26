@@ -5,17 +5,10 @@ import java.util.List;
 public class Study01 {
     public static void main(String[] args) {
         new Study01().process();
-        new Study01().process("Wonseok");
-        new Study01().process2();
     }
 
-    private final CalculatorFactory calculatorFactory = new CalculatorFactory();
-    private final CalculatorPlus Calculator = new CalculatorPlus(); // Common
-    private final CalculatorPlusA plusA = new CalculatorPlusA(); //x + y
-    private final CalculatorPlusB plusB = new CalculatorPlusB(); // x + y + y
-    private final CalculatorMinusA minusA = new CalculatorMinusA(); // x - y
+    private final static CalculatorFactory calculatorFactory = new CalculatorFactory();
 
-    @Deprecated
     public void process() {
         //일반 연산규칙 무시하고 순서대로 class를 호출한다.
         // 추후 system.in 으로 사용자가 입력할 수 있다.
@@ -26,72 +19,16 @@ public class Study01 {
         int result = 0;
         String lastWord = null;
         for (String word : wordList) {
+            //todo 20230126 1번 좀 더 가독성 좋도록 리팩토링 해보세요.(해당 조건문들만)
+            // 참고 study01Refactoring은 이현호대리님 코드입니다.
+            // 좀 더 코드량을 줄일 수 있는지 찾아보세요. (람다 활용/ 리팩토링 중 extract method도 가능)
             if (!isInt(word)) {
                 lastWord = word;
             } else if (isInt(word) && lastWord == null) {
                 result = Integer.parseInt(word);
             } else if (isInt(word) && lastWord != null) {
-                if ("plusA".equals(lastWord)) {
-                    result = plusA.calculate(result, Integer.parseInt(word));
-                } else if ("plusB".equals(lastWord)) {
-                    result = plusB.calculate(result, Integer.parseInt(word));
-                } else if ("minusA".equals(lastWord)) {
-                    result = minusA.calculate(result, Integer.parseInt(word));
-                }
-                System.out.println("word : " + word + " result : " + result + " last word" + lastWord );
-            } else {
-                // ?
-            }
-        }
-
-        System.out.println("result : " + result);
-    }
-
-    /**
-     * 저장소에 저장된 임이의 아래와 같은 문자열이 있을때 계산 결과를 받고 싶다.
-     * 현재 구현된 class는 모두 입력 가능하다.
-     *
-     * ex ) "10 plusD 3" or "10 plusD 3 plusA 4 minusD 3" or "10 plus 3 plusD 4 minus 3"
-     *
-     * Factory Pattern , Stack(Queue)등을 활용할 수 있다.
-     */
-    public void process(String string) {
-
-        String sortedWords = "10 plusA 3 plusB 2 minusA 4 plusA 2"; // (10 + 3 + (2 + 2) - 4 + 2)
-        List<String> wordList = List.of(sortedWords.split(" "));
-
-        int result = 0;
-        String lastWord = null;
-        for (String word : wordList) {
-            if (!isInt(word)) {
-                lastWord = word;
-            } else if (isInt(word) && !isNotNull(lastWord)) {
-                result = Integer.parseInt(word);
-            } else if (isInt(word) && isNotNull(lastWord)) {
-                result = Calculator.calculate(result, Integer.parseInt(word), lastWord);
-                System.out.println("word : " + word + " result : " + result + " last word" + lastWord );
-            } else {
-                // ?
-            }
-        }
-
-        System.out.println("result : " + result);
-    }
-
-    public void process2() {
-
-        String sortedWords = "10 plusA 3 plusB 2 minusA 4 plusA 2"; // (10 + 3 + (2 + 2) - 4 + 2)
-        List<String> wordList = List.of(sortedWords.split(" "));
-
-        int result = 0;
-        String lastWord = null;
-        for (String word : wordList) {
-            if (!isInt(word)) {
-                lastWord = word;
-            } else if (isInt(word) && !isNotNull(lastWord)) {
-                result = Integer.parseInt(word);
-            } else if (isInt(word) && isNotNull(lastWord)) {
-                result = calculatorFactory.getCalculator(result, Integer.parseInt(word), lastWord);
+                CalculatorInterface calculator = calculatorFactory.getCalculator(lastWord);
+                result = calculator.calculate(result, Integer.parseInt(word));
                 System.out.println("word : " + word + " result : " + result + " last word" + lastWord );
             } else {
                 // ?
@@ -102,8 +39,7 @@ public class Study01 {
     }
 
     private boolean isInt(String str) {
-        //해당 방법이 좋은지 토론.
-        // spring framework의 NumberUtils를 활용하면 bool 타입의 메소드를 만들 필요 없이 즉시 반환 가능.
+        //todo todo 20230126 2번 오늘 나온 내용(number utils등)을 바탕으로 해당 메소드들를 분석 후 가장 좋은 방식으로 리팩토링해보세요.
         try {
             Integer.parseInt(str);
             return true;
@@ -112,13 +48,5 @@ public class Study01 {
         }
     }
 
-    private boolean isNotNull(String str) {
-        // spring framework의 StringUtils를 활용하면 bool 타입의 메소드를 만들 필요 없이 즉시 반환 가능.
-        if(!"".equals(str) && null != str) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 }
