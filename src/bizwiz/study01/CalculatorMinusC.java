@@ -1,8 +1,8 @@
 package bizwiz.study01;
 
-public class CalculatorMinusC implements CalculatorInterface {
+public class CalculatorMinusC implements CalculatorMinusInterface {
     @Override
-    public int calculate(int i, int j) {
+    public int minus(int i, int j) {
         return i - j - 3;
     }
 }

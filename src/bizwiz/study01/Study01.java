@@ -19,19 +19,24 @@ public class Study01 {
         int result = 0;
         String lastWord = null;
         for (String word : wordList) {
-            //todo 20230126 1번 좀 더 가독성 좋도록 리팩토링 해보세요.(해당 조건문들만)
+            // todo 20230126 1번 좀 더 가독성 좋도록 리팩토링 해보세요.(해당 조건문들만)
             // 참고 study01Refactoring은 이현호대리님 코드입니다.
             // 좀 더 코드량을 줄일 수 있는지 찾아보세요. (람다 활용/ 리팩토링 중 extract method도 가능)
             if (!isInt(word)) {
                 lastWord = word;
-            } else if (isInt(word) && lastWord == null) {
+            }
+
+            if (isInt(word) && lastWord == null) {
                 result = Integer.parseInt(word);
             } else if (isInt(word) && lastWord != null) {
-                CalculatorInterface calculator = calculatorFactory.getCalculator(lastWord);
-                result = calculator.calculate(result, Integer.parseInt(word));
+                if(lastWord.contains("minus")) {
+                    CalculatorMinusInterface minus = calculatorFactory.getInterfaceReflectionMinus(lastWord);
+                    result = minus.comMinus(result, Integer.parseInt(word));
+                } else {
+                    CalculatorInterface calculator = calculatorFactory.getInterfaceReflection(lastWord);
+                    result = calculator.calculate(result, Integer.parseInt(word));
+                }
                 System.out.println("word : " + word + " result : " + result + " last word" + lastWord );
-            } else {
-                // ?
             }
         }
 
