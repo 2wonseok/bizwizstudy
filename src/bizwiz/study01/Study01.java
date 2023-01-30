@@ -24,11 +24,9 @@ public class Study01 {
             // 좀 더 코드량을 줄일 수 있는지 찾아보세요. (람다 활용/ 리팩토링 중 extract method도 가능)
             if (!isInt(word)) {
                 lastWord = word;
-            }
-
-            if (isInt(word) && lastWord == null) {
+            } else if (lastWord == null) {
                 result = Integer.parseInt(word);
-            } else if (isInt(word) && lastWord != null) {
+            } else if (lastWord != null) {
                 if(lastWord.contains("minus")) {
                     CalculatorMinusInterface minus = calculatorFactory.getInterfaceReflectionMinus(lastWord);
                     result = minus.comMinus(result, Integer.parseInt(word));
