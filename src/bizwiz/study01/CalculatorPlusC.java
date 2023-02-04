@@ -6,4 +6,9 @@ public class CalculatorPlusC implements CalculatorInterface {
     public int calculate(int i, int j) {
         return i + j + 2;
     }
+
+    @Override
+    public String getType() {
+        return "plusC";
+    }
 }

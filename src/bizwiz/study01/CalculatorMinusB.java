@@ -10,4 +10,9 @@ public class CalculatorMinusB implements CalculatorMinusInterface {
 
         return i - j - 2;
     }
+
+    @Override
+    public String getType() {
+        return "minusB";
+    }
 }

@@ -5,4 +5,6 @@ public interface CalculatorInterface {
     // 4-1 minus 인터페이스에 default메소드를 만들어보세요.
     int calculate(int i, int j);
 
+    String getType();
+
 }

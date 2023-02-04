@@ -7,5 +7,7 @@ public interface CalculatorMinusInterface {
     default int comMinus(int i, int j) {
         return this.minus(i, j);
     }
+
+    String getType();
 }
 
