@@ -22,6 +22,12 @@ public class Study01 {
             //todo 20230126 1번 좀 더 가독성 좋도록 리팩토링 해보세요.(해당 조건문들만)
             // 참고 study01Refactoring은 이현호대리님 코드입니다.
             // 좀 더 코드량을 줄일 수 있는지 찾아보세요. (람다 활용/ 리팩토링 중 extract method도 가능)
+
+            /* Extract Method 메서드 추출 리팩토링
+                - 한 메서드안에 이런저런 세세한 처리가 많다면 그런 처리를 묶어서 나누고 독립된 메서드로 추출하고 추출한 메서드에는 적절한 이름을 붙임.
+                - 장황한 코드가 읽기 편해짐.
+                - 장단점 : 각 메서드가 짧아지는 장점이 있는 반면 메서드 개수가 늘어남
+            */
             if (!isInt(word)) {
                 lastWord = word;
             } else if (isInt(word) && lastWord == null) {
