@@ -1,10 +1,20 @@
 package bizwiz.study01Refactoring;
 
+import bizwiz.study01.CalculatorMinusA;
+import bizwiz.study01.CalculatorPlusA;
+import bizwiz.study01.CalculatorPlusB;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Study01 {
+
+    private String rex = "^[0-9]*$";
+    private final Pattern pattern = Pattern.compile(rex);
+
+
     public static void main(String[] args) {
         new Study01().process();
     }
@@ -26,19 +36,20 @@ public class Study01 {
             String lastWord = null;
 
             for (String word : wordList) {
-                if (!isInt(word)) {
+
+                if(!isInt(word)) {
                     lastWord = word;
                     continue;
                 }
 
-                if (lastWord == null) {
+                if(lastWord == null) {
                     result = Integer.parseInt(word);
                     continue;
                 }
 
                 int j = Integer.parseInt(word);
-                Operator operator = OperatorFactory.getOperator(lastWord);
-                result = operator.calculate(result, j);
+                Operator operator = OperatorFactory.getOperator(lastWord, result, j);
+                result = Objects.requireNonNull(operator).calculate();
 
             }
 
@@ -51,8 +62,7 @@ public class Study01 {
 
     private boolean isInt(String str) {
         //해당 방법이 좋은지 토론.
-        String pattern = "^[0-9]*$";
-        return Pattern.matches(pattern, str);
+        return pattern.matcher(str).matches();
     }
 
 }
