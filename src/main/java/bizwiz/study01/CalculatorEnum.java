@@ -14,7 +14,13 @@ public enum CalculatorEnum {
     PLUS_D("plusD");
     private String classText;
 
+<<<<<<< HEAD
     CalculatorEnum(String classText){this.classText = classText;}
+=======
+    CalculatorEnum(String classText){
+        this.classText = classText;
+    }
+>>>>>>> master
 
     public String getClassText(){
         return this.classText;
