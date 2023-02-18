@@ -1,15 +1,16 @@
 package bizwiz.programmers;
 
+import java.text.NumberFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.stream.Collectors;
-
+import java.util.stream.IntStream;
 public class chapter01 {
+    public static void main(String[] args) {
+
+    }
     /* 프로그래머스 과제 제출 코드
         1. 나누어 떨어지는 숫자 배열
             array의 각 element 중 divisor로 나누어 떨어지는 값을 오름차순으로 정렬한 배열을 반환하는 함수, solution을 작성해주세요.
