@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 public class chapter02 {
 
     public static void main(String[] args) {
-        String str = "1234";
-        int n =10;
+        String str = "pPoooyY";
+        int n =1000;
         new chapter02().solution3(n);
     }
     public String solution(String str) {
@@ -32,15 +32,21 @@ public class chapter02 {
     }
     public int solution3(int n) {
         int answer = 0;
-        for (int i =1; i<=n;i++){
-            if (i%2==0 && i%3==0 && i%5==0 && i%7==0){
-
-            }else{
-                answer++;
+        List<Integer> list =new ArrayList<>();
+        return answer;
+    }
+    boolean solution4(String s) {
+        int pnum=0;
+        int ynum=0;
+        char[] chars = s.toCharArray();
+        for (char a :chars){
+            if('P'==a|| 'p'==a){
+                pnum++;
+            }else if('Y'==a|| 'y'==a){
+                ynum++;
             }
         }
-        System.out.println(answer);
-        return answer;
+        return pnum==ynum  ;
     }
 
 
