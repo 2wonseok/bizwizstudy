@@ -5,4 +5,9 @@ public class CalculatorMinusC implements CalculatorInterface {
     public int calculate(int i, int j) {
         return i - j - 3;
     }
+
+    @Override
+    public String getType() {
+        return "minusC";
+    }
 }

@@ -1,5 +1,9 @@
 package bizwiz.study01;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class CalculatorFactory {
 
     //todo 20230126 3번 이 if문을 없애고 싶을때 어떤방법이 있을까요?
@@ -30,6 +34,8 @@ public class CalculatorFactory {
     - extem : 외부변수를 가져다 씀 / 어딘가에 변수가 선언되어있의 가져다 쓰는 의미로 전역변수 Static을 사용할 수 있게 해줌
 
     */
+
+
     public CalculatorInterface getCalculator(String type) {
         switch (type) {
             case "plusA":
@@ -52,4 +58,26 @@ public class CalculatorFactory {
                 throw new IllegalArgumentException("type not support : " + type);
         }
     }
+
+    public CalculatorInterface getCalculatorin(String type){
+        String[] get = {"plusA","plusB","plusC","plusD","minusA","minusB","minusC","multiply"};
+        Object[] objects = {new CalculatorPlusA(),
+                new CalculatorPlusB(),
+                new CalculatorPlusC(),
+                new CalculatorPlusD(),
+                new CalculatorMinusA(),
+                new CalculatorMinusB(),
+                new CalculatorMinusC(),
+                new CalculatorMultiply()
+        };
+
+        Map<String[],Object> calculatorMap = new HashMap<>();
+        for(String list : get){
+            calculatorMap.put(get,objects);
+        }
+
+      return calculatorMap.(type);
+    }
 }
+
+

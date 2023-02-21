@@ -4,6 +4,8 @@ public interface CalculatorInterface {
     //todo 4번 다형성이란? CalculatorMinus들만 Minus 인터페이스를 상속받아 minus란 이름의 메소드를 만들어보세요.
     // 4-1 minus 인터페이스에 default메소드를 만들어보세요.
     int calculate(int i, int j);
+
+    String getType();
 }
 
 //    인터페이스는 기능에 대한 선언만 가능하기 때문에, 실제 코드를 구현한 로직은 포함될 수 없습니다.
