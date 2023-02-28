@@ -3,7 +3,7 @@ package bizwiz.programmers.level1;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class 문자열내마음대로정렬하기 {
+public class b문자열내마음대로정렬하기 {
 
     public static void main(String[] args) {
 

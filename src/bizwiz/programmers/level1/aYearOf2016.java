@@ -1,8 +1,6 @@
 package bizwiz.programmers.level1;
 
-import java.util.Calendar;
-
-public class YearOf2016 {
+public class aYearOf2016 {
 
     public static void main(String[] args) {
         System.out.println(getDayOfTheWeek(5,24));
