@@ -8,9 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Study03 {
-    public static void main(String[] args) {
-        new Study03().test01();
-    }
+    public static void main(String[] args) {new Study03().test01();}
 
     //todo test01, test01_2 , test01_modify, test02 돌려보시고 왜 에러가 나는지/안나는지
     // 어떻게 하면 잠재적 위협을 벗어날수 있는지 고민해보시고 발표해주세요

@@ -5,10 +5,11 @@ import java.util.Collections;
 
 public class stringSum {
     public static void main(String[] args) {
-       new stringSum().solution(String[]strings,5);
+        String[] strs = {"sum","dex","map"};
+        new stringSum().solution(strs,1);
     }
 
-    public String[] solution (String[]strings,int n){
+    public String[] solution (String[] strings,int n){
         String[] answer = new String[strings.length];
 
         ArrayList<String> arr = new ArrayList<>();
@@ -22,6 +23,7 @@ public class stringSum {
         for (int i = 0; i < arr.size(); i++) {
             answer[i] = arr.get(i).substring(1);
         }
+        System.out.println(arr);
         return answer;
     }
 }
