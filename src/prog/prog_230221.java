@@ -2,7 +2,7 @@ package prog;
 
 public class prog_230221 {
 
-    //소수 찾기
+    //소수 찾기 ★
     import java.util.*;
 
     class Solution {
@@ -23,7 +23,7 @@ public class prog_230221 {
     }
 
 
-    //서울에서 김서방 찾기
+    //서울에서 김서방 찾기 ★
     class Solution {
         public String solution(String[] seoul) {
             String answer = "";
