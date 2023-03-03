@@ -2,7 +2,7 @@ package bizwiz.programmers;
 
 public class chapter03 {
     public static void main(String[] args) {
-        new chapter03().solution(4);
+        new chapter03().solution(3);
     }
 
 /*
@@ -20,8 +20,16 @@ public String solution(int n) {
         answer+="박";
     }
     }
-    System.out.println(answer);
     return answer;
 }
+    public int solution2(String s) {
+        int answer = Integer.parseInt(s);
+        return answer;
+    }
+
+
+
+
 
 }
+
