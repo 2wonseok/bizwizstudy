@@ -51,6 +51,15 @@ public class chapter04 {
         answer[1] = maxSizeOfOneArea;
         return answer;
     }
+    public int recursion(int num){
+            if(num==0){
+                return 0;
+            }
+
+
+
+        return recursion(num-1);
+    }
 
 
 
