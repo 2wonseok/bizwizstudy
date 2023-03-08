@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/bizwizstudy.iml" filepath="$PROJECT_DIR$/bizwizstudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/비즈위즈스터디.iml" filepath="$PROJECT_DIR$/비즈위즈스터디.iml" />
     </modules>
   </component>
