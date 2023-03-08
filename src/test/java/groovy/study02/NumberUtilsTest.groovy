@@ -1,4 +1,4 @@
-package bizwiz.study02
+package groovy.study02
 
 import org.apache.commons.lang3.math.NumberUtils
 import spock.lang.Specification

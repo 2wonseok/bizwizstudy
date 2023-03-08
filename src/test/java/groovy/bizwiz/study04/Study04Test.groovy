@@ -1,5 +1,7 @@
-package bizwiz.study04
+package groovy.bizwiz.study04
 
+import bizwiz.study04.Study04
+import bizwiz.study04.Study04Sub
 import spock.lang.Specification
 
 class Study04Test extends Specification {
