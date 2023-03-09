@@ -27,7 +27,7 @@ public class Study01 {
             } else if (isInt(word) && lastWord == null) {
                 result = Integer.parseInt(word);
             } else if (isInt(word) && lastWord != null) {
-                CalculatorInterface calculator = calculatorFactory.getCalculator(lastWord);
+                CalculatorInterface calculator = calculatorFactory.getCalculator(CalculatorEnum.findBy(lastWord));
                 result = calculator.calculate(result, Integer.parseInt(word));
                 System.out.println("word : " + word + " result : " + result + " last word" + lastWord );
             } else {
