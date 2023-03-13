@@ -13,7 +13,7 @@ class Solution {
     public static void main(String[] args) {
         int m =6;
         int n =4;
-        int[][] picture ={{1, 1, 1, 0}, {1, 2, 2, 0}, {1, 0, 0, 1}, {0, 0, 0, 1}, {0, 0, 0, 3}, {0, 0, 0, 3}};
+        int[][] picture ={{1, 1, 1, 0}, {1, 2, 2, 0}, {1, 0, 0, 1}, {1, 0, 0, 1}, {1, 1, 0, 3}, {1, 1, 0, 3}};
 
         new Solution().solution(6,4,picture);
     }
