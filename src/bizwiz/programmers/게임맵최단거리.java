@@ -9,21 +9,35 @@ public class 게임맵최단거리 {
     static int temp_cnt = 0;
     static int temp_cnt2 = 0;
     public static void main(String[] args) {
-        int[][] maps ={{1,0,1,1,1}, {1,0,1,0,1}, {1,0,1,1,1}, {1,1,1,0,1}, {0,0,0,0,1}};
+        int[][] maps ={{1,0,1,1,1},
+                       {1,0,1,0,1},
+                       {1,0,1,1,1},
+                       {1,1,1,0,1},
+                       {0,0,0,0,1}};
+                      /* {{1, 0, 1, 1, 1},
+                        {1, 0, 1, 0, 1},
+                        {1, 0, 1, 1, 1},
+                        {1, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 1}};*/
         new 게임맵최단거리().solution(maps);
     }
 
 
     public int solution(int[][] maps) {
         int answer = 0;
-        boolean [][] dfsc =new boolean[maps.length][maps[0].length];
-        boolean [][] bfsc =new boolean[maps.length][maps[0].length];
-        dfs(0,0,maps,dfsc);
-        bfs(0,0,maps,bfsc);
-        System.out.println("temp_cnt:::::::::"+temp_cnt);
-        System.out.println("temp_cnt2::::::::"+temp_cnt2);
+        boolean [][] check =new boolean[maps.length][maps[0].length];
+//        boolean [][] bfsc =new boolean[maps.length][maps[0].length];
+        dfs(0,0,maps,check);
+        check =new boolean[maps.length][maps[0].length];
+        bfs(0,0,maps,check);
+
         answer =temp_cnt < temp_cnt2 ? temp_cnt :temp_cnt2;
+        if (!check[maps.length-1][maps[0].length-1] ){
+            answer=-1;
+            System.out.println("출구가없어연"+answer);
+        }else {
         System.out.println("최단거리="+answer);
+        }
         return answer;
     }
 
@@ -43,7 +57,6 @@ public class 게임맵최단거리 {
                 continue;
             }
             if(maps[nx][ny]==1 && !check[nx][ny]){
-                // 12. DFS를 위한 재귀호출.
                 dfs(nx,ny,maps,check);
             }
         }
